@@ -5,10 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Coding Quiz Game Page</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/game.css">
 </head>
 <body>
     <div class="container">
-        <div id="game" class="flex-column justify-center"></div>
+        <div id="game" class="flex-column justify-center">
+            <div class="score-container">
+                <div class="score-item">
+                    <p id="progressText" class="score-prefix">
+                        Question #
+                    </p>
+                    <div id="myProgress">
+                        <div id="myBar"></div>
+                    </div>
+                </div>
+                <div class="score-item">
+                    <p class="score-prefix">
+                        Score:
+                    </p>
+                    <h1 class="score-main-text" id="score">
+                        0
+                    </h1>
+                </div>
+            </div>
+            <div id="question">Here is a sample question?</div>
+            <div class="choice-container">
+                <p class="choice-prefix">A</p>
+                <p class="choice-text" data-number="1">Choice A</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">B</p>
+                <p class="choice-text" data-number="2">Choice B</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">C</p>
+                <p class="choice-text" data-number="3">Choice C</p>
+            </div>
+            <div class="choice-container">
+                <p class="choice-prefix">D</p>
+                <p class="choice-text" data-number="4">Choice D</p>
+            </div>
+        </div>
     </div>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
