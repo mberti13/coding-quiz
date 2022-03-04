@@ -54,6 +54,25 @@ var setQuestion = function(){
     choiceDEl.addEventListener("click", checkAnswer)
 }
 
+var i= 0;
+    function progressBar(){
+    if(i===0){
+        i = 1;
+        var elem = document.getElementById("myBar");
+        var width = 1;
+        var id = setInterval(frame, 600 )
+        function frame(){
+            if(width>=100){
+                clearInterval(id);
+                i = 0;
+            }else{
+                width++
+                elem.style.width = width + "%";
+            }
+        }
+    }
+}
+
 var checkAnswer = function(event){
     var correctAnswer = questions[questionIndex].answer;
     var userAnswer = event.target.innerText;
@@ -77,3 +96,4 @@ var saveScore = function(){
     localStorage.setItem("Score", score);
 }
 setQuestion();
+progressBar();
