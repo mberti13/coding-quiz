@@ -41,8 +41,10 @@ var timerInterval = setInterval(function(){
         saveScore();
     }
 },1000)
+
+//Sets Question for user to answer
 var setQuestion = function(){
-    questionNumber.textContent = "Question #" +questions[questionIndex].number;
+    questionNumber.textContent = "Question #" + questions[questionIndex].number;
     questionEl.textContent = questions[questionIndex].title;
     choiceAEl.textContent = questions[questionIndex].choices[0];
     choiceBEl.textContent = questions[questionIndex].choices[1];
@@ -54,6 +56,7 @@ var setQuestion = function(){
     choiceDEl.addEventListener("click", checkAnswer)
 }
 
+// Progrss Bar Movement
 var i= 0;
     function progressBar(){
     if(i===0){
@@ -79,6 +82,7 @@ var checkAnswer = function(event){
     if(correctAnswer === userAnswer){
         alert("You are correct!");
         score ++;
+
     }else{
         alert("You are incorrect!");
     }
@@ -92,8 +96,14 @@ var checkAnswer = function(event){
 }
 var saveScore = function(){
     clearInterval(timerInterval);
-    alert("Game Over! You ended with a score of " + score);
-    localStorage.setItem("Score", score);
+    var playerName = prompt("What is your name?");
+    alert("Game Over! You ended with a score of " + score + " " + playerName);
+    var playerScoreData = {
+        name: playerName,
+        score: score
+    };
+    console.log(playerScoreData);
+    localStorage.setItem("playerData", JSON.stringify(playerScoreData));
 }
 setQuestion();
 progressBar();
