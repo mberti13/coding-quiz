@@ -1,69 +1,71 @@
-body{
-    color: white;
-    padding: 0;
-    margin: 0;
-    font-size: 20rem;
+body {
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 20rem;
 }
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.choice-container{
-    display: flex;
-    margin-bottom: 1rem;
-    width: 100%;
-    background-color: #fff;
-    color: black;
-    font-size: 5rem;
-    border-radius: 15px;
-    min-width: 80rem;
+.choice-container {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: #fff;
+  color: black;
+  font-size: 5rem;
+  border-radius: 15px;
+  min-width: 80rem;
 }
-.choice-container:hover{
-    cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 255, 255, 0.5) ;
-    transition: transform 75ms;
-    transform: scale(1.02);
+.choice-container:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 255, 255, 0.5);
+  transition: transform 75ms;
+  transform: scale(1.02);
 }
-.choice-prefix{
-    padding: 1rem 2rem;
-    color: black;
-    font-weight: bold;
-    
+.choice-prefix {
+  padding: 1rem 2rem;
+  color: black;
+  font-weight: bold;
 }
-.choice-text{
-    padding: 1rem;
-    width: 100%;
+.choice-text {
+  padding: 1rem;
+  width: 100%;
 }
-#progressText, .score-item{
-    text-align: center;
+#progressText,
+.score-item {
+  text-align: center;
 }
-.correct{
-    background-color: linear-gradient(32deg, rgba(11,223,36) 0%) rgb(41,232,111)100%;
+.correct {
+  background-color: linear-gradient(32deg, rgba(11, 223, 36) 0%)
+    rgb(41, 232, 111) 100%;
 }
-.incorrect{
-    background-color: linear-gradient(32deg, rgb(199, 27, 27) 0%) rgb(236, 26, 11)100%;
+.incorrect {
+  background-color: linear-gradient(32deg, rgb(199, 27, 27) 0%) rgb(236, 26, 11)
+    100%;
 }
-.score-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.score-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.score-prefix{
-    text-align: center;
-    font-size: 3rem;
+.score-prefix {
+  text-align: center;
+  font-size: 3rem;
 }
-#myProgress{
-    width: 20rem;
-    height: 3rem;
-    border: 2px solid #fff;
-    margin-top: 2px;
-    border-radius: 50px;
-    overflow: hidden;
+#myProgress {
+  width: 20rem;
+  height: 3rem;
+  border: 2px solid #fff;
+  margin-top: 2px;
+  border-radius: 50px;
+  overflow: hidden;
 }
-#myBar{
-    height: 100%;
-    background-color: #fff;
-    width: 0%;
+#myBar {
+  height: 100%;
+  background-color: #fff;
+  width: 0%;
 }

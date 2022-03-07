@@ -34,6 +34,8 @@ var choiceBEl = document.querySelector("#choice2");
 var choiceCEl = document.querySelector("#choice3");
 var choiceDEl = document.querySelector("#choice4");
 var timer = document.querySelector("#timer");
+var listName = document.querySelector("#name-list");
+var listScore = document.querySelector("#score-list");
 var timerInterval = setInterval(function(){
     time--;
     timer.textContent = time + " seconds remaining";
@@ -56,7 +58,7 @@ var setQuestion = function(){
     choiceDEl.addEventListener("click", checkAnswer)
 }
 
-// Progrss Bar Movement
+// Progress Bar Movement
 var i= 0;
     function progressBar(){
     if(i===0){
@@ -76,13 +78,14 @@ var i= 0;
     }
 }
 
+//Verifies Answer chosen is correct
 var checkAnswer = function(event){
     var correctAnswer = questions[questionIndex].answer;
     var userAnswer = event.target.innerText;
     if(correctAnswer === userAnswer){
         alert("You are correct!");
         score ++;
-
+        
     }else{
         alert("You are incorrect!");
     }
@@ -94,16 +97,47 @@ var checkAnswer = function(event){
         saveScore();
     }
 }
+// Saves Score and Name to localStorage
 var saveScore = function(){
     clearInterval(timerInterval);
     var playerName = prompt("What is your name?");
     alert("Game Over! You ended with a score of " + score + " " + playerName);
+    if(!playerName){
+        alert("You didn't enter a name!");
+    }
     var playerScoreData = {
         name: playerName,
         score: score
     };
-    console.log(playerScoreData);
     localStorage.setItem("playerData", JSON.stringify(playerScoreData));
+    
 }
+// Retrieve Score and Name from Local Storage
+var setScore = function(){
+    var playerData = JSON.parse(localStorage.getItem("playerData"));
+    
+    //set Score to playerScore
+    playerScore=(playerData.score);
+    console.log(playerScore);
+
+    //set Name to Name on List
+    playerName=(playerData.name);
+    console.log(playerName);
+    
+    //create and append div with playerName
+    var listNameEl = document.createElement("div");
+    listNameEl.className = "list-item";
+    listNameEl.innerHTML = playerName.toUpperCase();
+    listName.append(listNameEl);
+
+     //create and append div with playerName
+    var listScoreEl = document.createElement("div");
+    listScoreEl.className = "list-item";
+    listScoreEl.innerHTML = playerScore;
+    console.log(listScoreEl);
+    listScore.append(listScoreEl);
+
+}
+setScore();
 setQuestion();
 progressBar();
