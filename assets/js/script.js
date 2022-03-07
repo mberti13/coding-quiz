@@ -41,6 +41,7 @@ var timerInterval = setInterval(function(){
     timer.textContent = time + " seconds remaining";
     if(time < 1){
         saveScore();
+
     }
 },1000)
 
@@ -95,6 +96,7 @@ var checkAnswer = function(event){
         questionNumber++;
     }else{
         saveScore();
+
     }
 }
 // Saves Score and Name to localStorage
@@ -111,10 +113,11 @@ var saveScore = function(){
     };
     localStorage.setItem("playerData", JSON.stringify(playerScoreData));
     
+    viewScores();
 }
 // Retrieve Score and Name from Local Storage
 var setScore = function(){
-    var playerData = JSON.parse(localStorage.getItem("playerData"));
+    var playerData = JSON.parse(localStorage.getItem("playerData")) || [];
     
     //set Score to playerScore
     playerScore=(playerData.score);
@@ -137,7 +140,16 @@ var setScore = function(){
     console.log(listScoreEl);
     listScore.append(listScoreEl);
 
-}
-setScore();
+};
+// Prompts to allow user to see high scores
+var viewScores = function(){
+    if(confirm("Would you like to view High Score?")== true){
+        window.location.href="highscore.html";
+    }else{
+        alert("Thanks for playing! Come back soon!");
+    }
+};
+//Create Order for Score List
+
 setQuestion();
 progressBar();

@@ -1,7 +1,7 @@
 body {
   color: white;
-  padding: 0;
-  margin: 0;
+  padding: 1rem;
+  margin: 1rem;
   font-size: 20rem;
 }
 .container {
@@ -17,7 +17,10 @@ body {
   color: black;
   font-size: 5rem;
   border-radius: 15px;
-  min-width: 80rem;
+  max-width: 100%;
+}
+#question{
+  margin-top: 3rem;
 }
 .choice-container:hover {
   cursor: pointer;
