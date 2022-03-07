@@ -3,27 +3,27 @@ var time = 60;
 var questions = [
     {
     number: 1,
-    title: "Question",
-    choices: ["A","B", "C","D"],
-    answer: "B"
+    title: "Inside which HTML element do we put the JavaScript",
+    choices: ["<javascript>","<js>", "<script>","<scripting>"],
+    answer: "<script>"
 },
 {
     number: 2,
-    title: "Question",
-    choices: ["A","B", "C","D"],
-    answer: "B"
+    title: "What is the correct JavaScript syntax to write 'Hello World'?",
+    choices: ["response.write('Hello World')","'Hello World'", "document.write('Hello World')","('Hello World')"],
+    answer: "document.write('Hello World')"
 },
 {
     number: 3,
-    title: "Question",
-    choices: ["A","B", "C","D"],
-    answer: "B"
+    title: "How do you create a function?",
+    choices: ["call myFunction()","myFunction()", "call function myFunction","Call.myFunction()"],
+    answer: "myFunction()"
 },
 {
     number: 4,
-    title: "Question",
-    choices: ["A","B", "C","D"],
-    answer: "B"
+    title: "How do you write a conditional statement for executing some statements only if 'i' is equal to 5?",
+    choices: ["if i==5 then","if i=5", "if i=5 then","if (i==5)"],
+    answer: "if (i==5)"
 }
 ]
 var questionIndex = 0;
@@ -103,47 +103,24 @@ var checkAnswer = function(event){
 var saveScore = function(){
     clearInterval(timerInterval);
     var playerName = prompt("What is your name?");
-    alert("Game Over! You ended with a score of " + score + " " + playerName);
     if(!playerName){
         alert("You didn't enter a name!");
     }
+    alert("Game Over! You ended with a score of " + score + " " + playerName);
+    var playerData = JSON.parse(localStorage.getItem("playerData")) || [];
     var playerScoreData = {
         name: playerName,
         score: score
     };
-    localStorage.setItem("playerData", JSON.stringify(playerScoreData));
-    
+    playerData.push(playerScoreData);
+    localStorage.setItem("playerData", JSON.stringify(playerScoreData)) || [];
+
     viewScores();
+    
 }
-// Retrieve Score and Name from Local Storage
-var setScore = function(){
-    var playerData = JSON.parse(localStorage.getItem("playerData")) || [];
-    
-    //set Score to playerScore
-    playerScore=(playerData.score);
-    console.log(playerScore);
 
-    //set Name to Name on List
-    playerName=(playerData.name);
-    console.log(playerName);
-    
-    //create and append div with playerName
-    var listNameEl = document.createElement("div");
-    listNameEl.className = "list-item";
-    listNameEl.innerHTML = playerName.toUpperCase();
-    listName.append(listNameEl);
-
-     //create and append div with playerName
-    var listScoreEl = document.createElement("div");
-    listScoreEl.className = "list-item";
-    listScoreEl.innerHTML = playerScore;
-    console.log(listScoreEl);
-    listScore.append(listScoreEl);
-
-};
-// Prompts to allow user to see high scores
 var viewScores = function(){
-    if(confirm("Would you like to view High Score?")== true){
+    if(confirm("Would you like to view High Scores?")== true){
         window.location.href="highscore.html";
     }else{
         alert("Thanks for playing! Come back soon!");

@@ -8,6 +8,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+#game{
+  min-width: 80%;
 }
 .choice-container {
   display: flex;
@@ -71,4 +75,7 @@ body {
   height: 100%;
   background-color: #fff;
   width: 0%;
+}
+@media screen {
+  
 }
